@@ -3,12 +3,25 @@ import axios from "axios";
 export const FETCH_TACO_START = "FETCH_TACO_START";
 export const FETCH_TACO_SUCCESS = "FETCH_TACO_SUCCESS";
 export const FETCH_TACO_ERROR = "FETCH_TACO_ERROR";
-
+export const UPDATE_LOCATION = "UPDATE_LOCATION";
+export const UPDATE_TYPE = "UPDATE_TYPE";
 
 
 // console.log("ID",REACT_APP_ID)
 
-export function fetchTacoVenues() {
+export function updateLocation(city) {
+  return dispatch => {
+    dispatch({ type: UPDATE_LOCATION, payload: city });
+  };
+}
+
+export function updateType(type){
+  return dispatch => {
+    dispatch({type: UPDATE_TYPE, payload: type})
+  }
+}
+
+export function fetchTacoVenues(city, queryType) {
     const REACT_APP_ID = process.env.REACT_APP_ID;
     const REACT_APP_SECRET = process.env.REACT_APP_SECRET;
     // console.log(REACT_APP_ID)
@@ -20,7 +33,7 @@ export function fetchTacoVenues() {
     dispatch({ type: FETCH_TACO_START });
 
     axios
-    .get(`https://api.foursquare.com/v2/venues/search?client_id=${REACT_APP_ID}&client_secret=${REACT_APP_SECRET}&v=20180323&limit=2&near=detroit&query=tacos&&radius=10000`)
+    .get(`https://api.foursquare.com/v2/venues/search?client_id=${REACT_APP_ID}&client_secret=${REACT_APP_SECRET}&v=20180323&limit=20&near=${city}&query=${queryType}&&radius=10000`)
     .then(res => {
         // Code for handling API response
         console.log("FSQ", res.data.response.venues)

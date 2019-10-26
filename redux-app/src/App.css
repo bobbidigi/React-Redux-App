@@ -1,3 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
@@ -79,9 +85,74 @@ img {
 }
 
 .card{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
   border-radius: 5px;
   width: 400px;
   border: 1px solid darkgray;
   margin-top: 1.5px;
+}
+.card .info{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.card .info h2, .card .info h4{
+  margin: 0;
+}
+.icon{
+  height: 50%;
+  background: rgb(50, 57, 97);
+}
+
+form{
+  padding: 3px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: rgb(50, 57, 97);
+}
+select{
+  padding: 5px;
+  font-size: 22px;
+  border-radius: 5px;
+}
+
+button {
+  padding: 6px 8px;
+  font-size: 16px;
+  background: none;
+  color: white;
+  border: 1px solid white;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #ffffff22;
+}
+
+button:focus {
+  outline: none;
+}
+
+input {
+  padding: 6px;
+  background: white;
+  border: none;
+  color: black;
+  border: 1px solid rgb(50, 57, 97);
+  border-radius: 5px;
+  font-size: 22px;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+input:focus {
+  outline: none;
 }
